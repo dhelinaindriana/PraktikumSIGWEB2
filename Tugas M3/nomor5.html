@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bilangan Fibonacci</title>
+	<style>
+		body {
+			text-align: center;
+			margin: 50px;
+			}
+		input, button {
+			padding: 10px;
+			margin: 10px;
+			}
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cari Bilangan Fibonacci</h1>
+    <label for="number">Masukkan Angka:</label>
+    <input type="number" id="number">
+    <button onclick="findFibonacci()">Cari</button>
+    <div id="output"></div>
+
+    <script>
+        function findFibonacci() {
+            let num = parseInt(document.getElementById('number').value);
+            let outputDiv = document.getElementById('output');
+            
+            if (isNaN(num) || num < 0) {
+                outputDiv.innerHTML = "Masukkan angka yang valid!";
+                return;
+            }
+            
+            let fib = [0, 1];
+            for (let i = 2; fib[i-1] + fib[i-2] <= num; i++) {
+                fib[i] = fib[i-1] + fib[i-2];
+            }
+            
+            outputDiv.innerHTML = "Barisan Fibonacci: " + fib.join(", ");
+        }
+    </script>
+</body>
+</html>

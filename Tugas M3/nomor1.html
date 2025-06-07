@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitungan Fungsi Faktorial</title>
+</head>
+<body>
+    <h2>Hitung faktorial dari input</h2>
+	<h3>Masukkan sembarang angka</h3>
+    <input type="number" id="inputNumber" min="0">
+    <button onclick="hitung()">Hitung</button>
+    <p id="hasil"></p>
+	
+	<h5 style="color:blue;" align="right">Dhelina Indriana Oktaviani <hr> 22/496467/TK/54397</h5>
+
+    <script>
+        function faktorial(x) {
+            if (x === 0) {
+			 return 1;
+			}
+			return x * faktorial(x-1);
+        }
+
+        function hitung() {
+            var angka = parseInt(document.getElementById("inputNumber").value);
+            document.getElementById("hasil").innerText = angka >= 0 ? 
+                `Angka faktorial dari ${angka} adalah : ${faktorial(angka)}` : "Masukkan angka valid!";
+        }
+    </script>
+</body>
+</html>
